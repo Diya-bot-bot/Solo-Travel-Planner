@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoloSafe | Violet AI Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="snap-container">
+        
+        <section class="slide violet-glow">
+            <div class="content">
+                <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
+                <span>Step 01</span>
+                <h2>Destination Safety</h2>
+                <p>Real-time crime data and safety ratings.</p>
+                <div class="glass-inner">
+                    <input type="text" id="destInput" placeholder="Enter City (e.g. Tokyo)">
+                    <button onclick="checkSafety()">Analyze Risk</button>
+                </div>
+                <div id="safetyReport" class="status-box">Awaiting input...</div>
+            </div>
+        </section>
+
+        <section class="slide magenta-glow">
+            <div class="content">
+                <div class="icon-box"><i class="fas fa-camera-viewfinder"></i></div>
+                <span>Step 02</span>
+                <h2>AI Place Scan</h2>
+                <p>Upload a photo to identify your surroundings and local risks.</p>
+                <label for="imageUpload" class="upload-btn">
+                    <i class="fas fa-upload"></i> Upload Photo
+                </label>
+                <input type="file" id="imageUpload" hidden onchange="handleAIUpload(event)">
+                <div id="imagePreviewContainer" class="preview-area" style="display:none;">
+                    <img id="previewImg" src="">
+                    <div id="aiStatus" class="ai-badge">Awaiting Image...</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide azure-glow">
+            <div class="content">
+                <div class="icon-box"><i class="fas fa-route"></i></div>
+                <span>Step 03</span>
+                <h2>Safe Routing</h2>
+                <p>Generate paths prioritizing well-lit, high-traffic areas.</p>
+                <div class="route-selector">
+                    <button class="path-btn" onclick="generateRoute('Well-Lit Main St')">Route A (Main St)</button>
+                    <button class="path-btn" onclick="generateRoute('Public Park Path')">Route B (Park Path)</button>
+                </div>
+                <div id="routeStatus" class="status-box">Select a destination path...</div>
+            </div>
+        </section>
+
+        <section class="slide red-glow">
+            <div class="content">
+                <div class="icon-box"><i class="fas fa-clock"></i></div>
+                <span>Step 04</span>
+                <h2>Safety Timer</h2>
+                <div class="timer-ui" id="countdownDisplay">05:00</div>
+                
+                <div class="btn-vertical-group">
+                    <button id="startBtn" onclick="startSafetyTimer()">Start Trip Timer</button>
+                    <button id="checkInBtn" onclick="checkInSafe()" class="checkin-btn" disabled>I Am Safe (Stop)</button>
+                    <button id="resetBtn" onclick="resetTimerUI()" class="reset-btn">Reset Timer</button>
+                    <button onclick="triggerEmergency()" class="sos-btn">Manual SOS Now</button>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

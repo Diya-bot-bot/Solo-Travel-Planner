@@ -1,0 +1,85 @@
+:root {
+    --deep-bg: #0b0e14;
+    --violet: #8b5cf6;
+    --magenta: #d946ef;
+    --azure: #0ea5e9;
+    --sos: #ef4444;
+    --safe: #2ecc71;
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+body, html {
+    margin: 0; padding: 0; height: 100%;
+    background-color: var(--deep-bg);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: white; overflow: hidden;
+}
+
+.snap-container {
+    display: flex; overflow-x: auto;
+    scroll-snap-type: x mandatory; height: 100vh;
+    scrollbar-width: none;
+}
+.snap-container::-webkit-scrollbar { display: none; }
+
+.slide {
+    min-width: 100vw; height: 100vh;
+    scroll-snap-align: start;
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px; box-sizing: border-box;
+}
+
+/* Lighting Effects */
+.violet-glow { background: radial-gradient(circle at top right, rgba(139, 92, 246, 0.15), transparent); }
+.magenta-glow { background: radial-gradient(circle at top right, rgba(217, 70, 239, 0.15), transparent); }
+.azure-glow { background: radial-gradient(circle at top right, rgba(14, 165, 233, 0.15), transparent); }
+.red-glow { background: radial-gradient(circle at top right, rgba(239, 68, 68, 0.15), transparent); }
+
+.content {
+    width: 100%; max-width: 360px;
+    background: var(--glass); backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 40px; padding: 35px; text-align: center;
+}
+
+.icon-box {
+    width: 60px; height: 60px;
+    background: linear-gradient(135deg, var(--violet), var(--magenta));
+    border-radius: 20px; margin: 0 auto 15px;
+    display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+}
+
+h2 { font-size: 1.7rem; margin: 10px 0; font-weight: 800; }
+p { font-size: 0.85rem; opacity: 0.7; margin-bottom: 25px; }
+
+/* Components */
+input {
+    width: 100%; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);
+    padding: 14px; border-radius: 12px; color: white; margin-bottom: 10px; box-sizing: border-box;
+}
+
+button {
+    width: 100%; padding: 14px; border-radius: 12px; border: none;
+    font-weight: 700; cursor: pointer; transition: 0.2s;
+}
+
+.upload-btn {
+    display: block; background: var(--violet); padding: 14px; border-radius: 12px; cursor: pointer;
+}
+
+.path-btn { background: rgba(255,255,255,0.05); color: white; border: 1px solid var(--azure); margin-bottom: 8px;}
+
+/* Timer UI */
+.timer-ui { font-size: 4rem; font-weight: 800; margin-bottom: 20px; }
+.timer-running { color: var(--sos); text-shadow: 0 0 15px rgba(239, 68, 68, 0.5); animation: blink 1s infinite; }
+
+.btn-vertical-group { display: flex; flex-direction: column; gap: 10px; }
+.checkin-btn { background: var(--safe) !important; color: white; opacity: 0.4; }
+.checkin-btn.active { opacity: 1; box-shadow: 0 0 15px rgba(46, 204, 113, 0.4); }
+.reset-btn { background: transparent !important; color: white; border: 1px solid rgba(255,255,255,0.2); }
+.sos-btn { background: var(--sos) !important; color: white; }
+
+@keyframes blink { 50% { opacity: 0.7; } }
+
+.status-box { margin-top: 15px; padding: 12px; background: rgba(0,0,0,0.2); border-radius: 12px; font-size: 0.8rem; border-left: 3px solid var(--violet); text-align: left;}
+.preview-area img { width: 100%; border-radius: 15px; margin-top: 10px; }
